@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--The sitemap for registered users-->
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode>
+    <siteMapNode url="Default.aspx" title="Home"  description="Home page" />
+    <siteMapNode url="Catalogue.aspx" title="Catalogue"  description="Book Catalogue" />
+    <siteMapNode url="user/Reservations.aspx" title="Reserved books"  description="View list of reserved books" />
+    <siteMapNode url="user/Borrowings.aspx" title="Borrowed books"  description="View list of borrowed books" />
+  </siteMapNode>
+</siteMap>

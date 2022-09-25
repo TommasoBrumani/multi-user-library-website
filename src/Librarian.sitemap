@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--The sitemap for librarians-->
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode>
+    <siteMapNode url="Default.aspx" title="Home"  description="Home page" />
+    <siteMapNode url="Catalogue.aspx" title="Catalogue"  description="Book Catalogue" />
+    <siteMapNode url="user/Reservations.aspx" title="User reservations"  description="View list of users' reserved books" />
+    <siteMapNode url="user/Borrowings.aspx" title="User borrowings"  description="View list of users' borrowed books" />
+    <siteMapNode url="librarian/UserList.aspx" title="Users list"  description="View list of active users" />
+    <siteMapNode url="librarian/AddBook.aspx" title="Add book"  description="Add a book to the database" />
+  </siteMapNode>
+</siteMap>

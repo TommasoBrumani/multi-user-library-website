@@ -1,0 +1,123 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<!-- MasterPage for the entire site -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <!-- Site style sheet -->
+    <link href="StyleSheet.css" rel="stylesheet" />
+
+    <!-- Placeholder for the various pages' head section -->
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head> 
+
+<body>
+    <div id="wrapper">
+        <form id="form1" runat="server">
+
+            <!-- Binding for the various sitemaps -->
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+            <asp:SiteMapDataSource ID="UserSiteMapDataSource" runat="server" SiteMapProvider="UserSitemap" />
+            <asp:SiteMapDataSource ID="LibrarianSiteMapDataSource" runat="server" SiteMapProvider="LibrarianSitemap" />
+            <asp:SiteMapDataSource ID="SuperLibrarianSiteMapDataSource" runat="server" SiteMapProvider="SuperLibrarianSitemap" />
+
+
+            <!-- Ajax toolkit's components manager so we don't have to put it in every page -->
+            <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+
+            <div id="header">
+                 <!-- The site's header -->
+                <div class="heading">
+                    <p>THE BEST LIBRARY</p>
+                </div>
+                <div id="login">
+
+                    <!-- Shows the login or logout button depending on user's logged in status -->
+                    <asp:LoginView ID="LoginView1" runat="server" OnViewChanged="LoginView1_ViewChanged">
+
+                        <AnonymousTemplate>
+                            <div id="csstoasp">
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                            </div>
+                        </AnonymousTemplate>
+
+                        <LoggedInTemplate>
+                           <p > Welcome:</p>
+                            <asp:LoginName ID="LoginName1" runat="server" />
+                            <asp:LoginStatus ID="LoginStatus2" runat="server" LogoutPageUrl="Logout.aspx" />
+                        </LoggedInTemplate>
+
+                    </asp:LoginView>
+                </div>
+
+               
+
+            </div>
+
+            <div id="container">
+
+                <div id="menu">
+
+                    <!-- Shows different navigation tree views depending on user's role and login status -->
+                    <div id="tree">
+
+                        <asp:LoginView ID="LoginView2" runat="server">
+
+                            <AnonymousTemplate>
+                                <asp:TreeView ID="TreeView1" DataSourceID="SiteMapDataSource1" runat="server" NodeIndent="0" ShowExpandCollapse="False" NodeStyle-CssClass="menunode" HoverNodeStyle-CssClass="menunodehover" SelectedNodeStyle-CssClass="menunodeselected" RootNodeStyle-CssClass="rootnode" ParentNodeStyle-CssClass="parentnode" Width="100%">
+                                </asp:TreeView>
+                            </AnonymousTemplate>
+
+                            <RoleGroups>
+
+                                <asp:RoleGroup Roles="User">
+                                    <ContentTemplate>
+                                        <asp:TreeView ID="TreeView1" DataSourceID="UserSiteMapDataSource" runat="server" NodeIndent="0" ShowExpandCollapse="False" NodeStyle-CssClass="menunode" HoverNodeStyle-CssClass="menunodehover" SelectedNodeStyle-CssClass="menunodeselected" RootNodeStyle-CssClass="rootnode" ParentNodeStyle-CssClass="parentnode">
+                                        </asp:TreeView>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+
+                                <asp:RoleGroup Roles="Librarian">
+                                    <ContentTemplate>
+                                        <asp:TreeView ID="TreeView1" DataSourceID="LibrarianSiteMapDataSource" runat="server" NodeIndent="0" ShowExpandCollapse="False" NodeStyle-CssClass="menunode" HoverNodeStyle-CssClass="menunodehover" SelectedNodeStyle-CssClass="menunodeselected" RootNodeStyle-CssClass="rootnode" ParentNodeStyle-CssClass="parentnode">
+                                        </asp:TreeView>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+
+                                <asp:RoleGroup Roles="SuperLibrarian">
+                                    <ContentTemplate>
+                                        <asp:TreeView ID="TreeView1" DataSourceID="SuperLibrarianSiteMapDataSource" runat="server" NodeIndent="0" ShowExpandCollapse="False" NodeStyle-CssClass="menunode" HoverNodeStyle-CssClass="menunodehover" SelectedNodeStyle-CssClass="menunodeselected" RootNodeStyle-CssClass="rootnode" ParentNodeStyle-CssClass="parentnode">
+                                        </asp:TreeView>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+
+                            </RoleGroups>
+
+                        </asp:LoginView>
+
+                    </div>
+                </div>
+
+                <div id="content">
+
+                    <!-- Placeholder for the various pages' content section -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <!-- The site's footer -->
+            <div id="footer">
+                <span class="footerspan">Copyright &#169; Tommaso Brumani, Lucie Naffien, Baptiste Finck</span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

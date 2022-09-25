@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--The sitemap for anonymous users-->
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode>
+    <siteMapNode url="Default.aspx" title="Home"  description="Home page" />
+    <siteMapNode url="Catalogue.aspx" title="Catalogue"  description="Book Catalogue" />
+    <siteMapNode url="Login.aspx" title="Login"  description="Login" />
+  </siteMapNode>
+</siteMap> 
+ 
