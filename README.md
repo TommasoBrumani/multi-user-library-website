@@ -1,6 +1,6 @@
 # Multi-User Library Website
 ## Overview
-The program is a functional implementation in the `ASP.NET` framework, using `C#` and `Microsoft DB`, of a <b>library website</b> supporting <b>multiple types of users</b> and different levels of access.. 
+The program is a functioning implementation in the `ASP.NET` framework, using `C#` and `Microsoft DB`, of a <b>library website</b> supporting <b>multiple types of users</b> and different levels of access.
 
 ### Authors
 - <b>Tommaso Brumani</b> (tommaso.brumani@via.dk)
